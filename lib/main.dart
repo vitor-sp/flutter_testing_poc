@@ -166,6 +166,10 @@ class _SecondPageState extends State<SecondPage> {
               'This is the second page',
               key: ValueKey('secondPageText'),
             ),
+            Text(
+              '453ac',
+              key: ValueKey('code'),
+            ),
           ],
         ),
       ),

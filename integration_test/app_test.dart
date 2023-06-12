@@ -46,8 +46,6 @@ void main() {
         // Emulate a tap on the floating action button.
         await tester.tap(fab);
 
-        await Future.delayed(const Duration(seconds: 2));
-
         // Trigger a frame.
         await tester.pumpAndSettle();
 
@@ -55,6 +53,21 @@ void main() {
           find.byKey(const ValueKey('secondPageText')),
           findsOneWidget,
         );
+
+        expect(
+          find.bySemanticsLabel('code'),
+          findsOneWidget,
+        );
+
+        // Finds the floating action button to tap on.
+        final Finder code = find.byKey(const ValueKey('code'));
+
+        final value = (tester.widget(code) as Text).data;
+
+
+        // Assert that the value is not empty
+        expect(value, isNotEmpty);
+        expect(value, '453ac');
 
         await Future.delayed(const Duration(seconds: 10));
       },
