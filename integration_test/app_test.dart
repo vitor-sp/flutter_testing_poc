@@ -54,16 +54,11 @@ void main() {
           findsOneWidget,
         );
 
-        expect(
-          find.bySemanticsLabel('code'),
-          findsOneWidget,
-        );
-
-        // Finds the floating action button to tap on.
         final Finder code = find.byKey(const ValueKey('code'));
 
-        final value = (tester.widget(code) as Text).data;
+        expect(code, findsOneWidget);
 
+        final value = (tester.widget(code) as Text).data;
 
         // Assert that the value is not empty
         expect(value, isNotEmpty);
